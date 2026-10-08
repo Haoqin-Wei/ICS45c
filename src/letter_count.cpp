@@ -10,7 +10,7 @@ int main() {
         count(line, char_counts);
     }
 
-    print_counts(char_counts);
+    print_counts(char_counts, N_CHARS);
 
     return 0;
 }

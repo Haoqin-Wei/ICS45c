@@ -24,8 +24,8 @@ void count(const std::string& s, int char_counts[]) {
     }
 }
 
-void print_counts(const int char_counts[]) {
-    for (int i = 0; i < N_CHARS; i++) {
+void print_counts(const int char_counts[], int size) {
+    for (int i = 0; i < size; i++) {
         std::cout << index_to_char(i)
                   << " "
                   << char_counts[i]
