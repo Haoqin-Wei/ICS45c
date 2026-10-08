@@ -72,6 +72,7 @@ TEST(StudentStack, TopDoesNotRemove) {
 }
 TEST(StudentStack, FullCapacity) {
     Stack st;
+    const int capacity = 1000;
 
     for (int i = 0; i < STACK_CAPACITY; ++i) {
         st.push('x');
