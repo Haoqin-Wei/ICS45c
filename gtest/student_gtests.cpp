@@ -45,3 +45,16 @@ TEST(StudentCount, IndexConversion) {
     EXPECT_EQ('A', index_to_char(0));
     EXPECT_EQ('Z', index_to_char(25));
 }
+
+TEST(StudentCount, LowercaseCharToIndex) {
+    EXPECT_EQ(0, char_to_index('a'));
+    EXPECT_EQ(25, char_to_index('z'));
+}
+
+TEST(StudentCount, MiddleLettersBothCases) {
+    EXPECT_EQ(12, char_to_index('M'));
+    EXPECT_EQ(12, char_to_index('m'));
+
+    EXPECT_EQ(7, char_to_index('H'));
+    EXPECT_EQ(7, char_to_index('h'));
+}

@@ -5,6 +5,7 @@
 const int N_CHARS = 26;
 
 int char_to_index(char c) {
+    c = std::toupper(static_cast<unsigned char>(c));
     return c - 'A';
 }
 
