@@ -58,3 +58,51 @@ TEST(StudentCount, MiddleLettersBothCases) {
     EXPECT_EQ(7, char_to_index('H'));
     EXPECT_EQ(7, char_to_index('h'));
 }
+
+TEST(StudentStack, TopDoesNotRemove) {
+    Stack st;
+
+    st.push('a');
+    st.push('b');
+
+    EXPECT_EQ('b', st.top());
+    EXPECT_EQ('b', st.top());
+    EXPECT_EQ('b', st.pop());
+    EXPECT_EQ('a', st.top());
+}
+TEST(StudentStack, FullCapacity) {
+    Stack st;
+
+    for (int i = 0; i < STACK_CAPACITY; ++i) {
+        st.push('x');
+    }
+
+    EXPECT_TRUE(st.isFull());
+
+    st.push('y');
+    EXPECT_EQ('x', st.top());
+}
+TEST(StudentCount, AccumulatesAcrossCalls) {
+    int counts[N_CHARS] = {0};
+
+    count("Aa", counts);
+    count("A", counts);
+
+    EXPECT_EQ(3, counts[char_to_index('A')]);
+}
+TEST(StudentCount, IgnoresNonLetters) {
+    int counts[N_CHARS] = {0};
+
+    count("A1! B? z.", counts);
+
+    EXPECT_EQ(1, counts[char_to_index('A')]);
+    EXPECT_EQ(1, counts[char_to_index('B')]);
+    EXPECT_EQ(1, counts[char_to_index('Z')]);
+
+    int total = 0;
+    for (int i = 0; i < N_CHARS; ++i) {
+        total += counts[i];
+    }
+
+    EXPECT_EQ(3, total);
+}
